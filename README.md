@@ -65,3 +65,5 @@ serviceaccount "fluentd-service-account" deleted
 
 daemonset "fluentd" deleted
 ```
+
+[![Analytics](https://ga-beacon.appspot.com/UA-113335243-2/welcome-page)](https://github.com/mateothegreat/k8-byexamples-fluentd-collector)
