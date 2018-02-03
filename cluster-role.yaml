@@ -1,0 +1,14 @@
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: $SERVICE_ACCOUNT
+  namespace: $NS
+rules:
+  - apiGroups: ["*"]
+    resources:
+      - pods
+      - namespaces
+    verbs:
+      - get
+      - watch
+      - list
