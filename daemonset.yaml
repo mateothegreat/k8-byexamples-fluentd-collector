@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: DaemonSet
 metadata:
   name: fluentd
-  namespace: kube-system
+#   namespace: kube-system7
   labels:
     k8s-app: fluentd-logging
     version: v1
@@ -23,17 +23,17 @@ spec:
         image: fluent/fluentd-kubernetes-daemonset:elasticsearch
         env:
           - name:  FLUENT_ELASTICSEARCH_HOST
-            value: "elasticsearch"
+            value: "${ELASTICSEARCH_HOST}"
           - name:  FLUENT_ELASTICSEARCH_PORT
-            value: "9200"
+            value: "${ELASTICSEARCH_PORT}"
           - name: FLUENT_ELASTICSEARCH_SCHEME
-            value: "http"
+            value: "${ELASTICSEARCH_SCHEME}"
           # X-Pack Authentication
           # =====================
           - name: FLUENT_ELASTICSEARCH_USER
-            value: "elastic"
+            value: "${ELASTICSEARCH_USER}"
           - name: FLUENT_ELASTICSEARCH_PASSWORD
-            value: "changeme"
+            value: "${ELASTICSEARCH_PASSWORD}"
         resources:
           limits:
             memory: 200Mi
