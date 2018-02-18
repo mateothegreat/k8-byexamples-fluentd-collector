@@ -4,17 +4,18 @@ metadata:
   name: fluentd
 #   namespace: kube-system7
   labels:
-    k8s-app: fluentd-logging
+    app: fluentd-logging
     version: v1
     # kubernetes.io/cluster-service: "true"
 spec:
   template:
     metadata:
       labels:
-        k8s-app: fluentd-logging
+        app: fluentd-logging
         version: v1
         # kubernetes.io/cluster-service: "true"
     spec:
+      serviceAccountName: $SERVICE_ACCOUNT
       tolerations:
       - key: node-role.kubernetes.io/master
         effect: NoSchedule
